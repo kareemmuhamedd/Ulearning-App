@@ -13,8 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => WelcomeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => WelcomeBloc(),
+        ),
+      ],
       child: ScreenUtilInit(
         builder: (context, child) {
           return MaterialApp(
