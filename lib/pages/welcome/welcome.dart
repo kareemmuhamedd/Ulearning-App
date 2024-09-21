@@ -7,7 +7,7 @@ import 'package:ulearning_app/pages/welcome/bloc/welcome_events.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_states.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({Key? key}) : super(key: key);
+  const Welcome({super.key});
 
   @override
   State<Welcome> createState() => _WelcomeState();
@@ -15,6 +15,12 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   PageController pageController = PageController(initialPage: 0);
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +129,7 @@ class _WelcomeState extends State<Welcome> {
               fontSize: 14.sp,
               fontWeight: FontWeight.normal,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
         GestureDetector(
@@ -148,10 +155,11 @@ class _WelcomeState extends State<Welcome> {
               borderRadius: BorderRadius.circular(15.w),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 2,
-                    offset: const Offset(0, 1))
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 2,
+                  offset: const Offset(0, 1),
+                )
               ],
             ),
             child: Center(
