@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/values/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String textType;
@@ -22,7 +23,7 @@ class CustomTextField extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(
-          color: Colors.black,
+          color: AppColors.primaryFourthElementText,
         ),
       ),
       child: Row(
@@ -59,12 +60,12 @@ class CustomTextField extends StatelessWidget {
                     color: Colors.transparent,
                   ),
                 ),
-                hintStyle: TextStyle(
-                  color: Colors.grey.withOpacity(0.5),
+                hintStyle: const TextStyle(
+                  color: AppColors.primarySecondaryElementText,
                 ),
               ),
               style: TextStyle(
-                color: Colors.black,
+                color: AppColors.primaryText,
                 fontFamily: 'Avenir',
                 fontWeight: FontWeight.normal,
                 fontSize: 14.sp,

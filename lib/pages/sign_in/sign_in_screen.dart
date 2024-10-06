@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/custom_text_field.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/login_and_register_button.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widget.dart';
+import 'package:ulearning_app/pages/sign_in/widgets/custom_signin_appbar.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/third_party_login_widget.dart';
 
 class SignIn extends StatefulWidget {
@@ -31,7 +31,7 @@ class _SignInState extends State<SignIn> {
                   child: reusableText('Or user your email account to login'),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 66.h),
+                  margin: EdgeInsets.only(top: 36.h),
                   padding: EdgeInsets.only(left: 25.w, right: 25.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
