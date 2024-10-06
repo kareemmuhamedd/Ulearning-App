@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/values/colors.dart';
 
 class ThirdPartyLoginWidget extends StatelessWidget {
   const ThirdPartyLoginWidget({super.key});
@@ -12,6 +13,7 @@ class ThirdPartyLoginWidget extends StatelessWidget {
             top: 40.h,
             bottom: 20.h,
           ),
+          padding: EdgeInsets.only(left: 25.w, right: 25.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -58,11 +60,11 @@ Widget forgotPassword(){
       onTap: () {},
       child: Text('Forgot password?',
         style: TextStyle(
-          color: Colors.black,
+          color: AppColors.primaryText,
           fontWeight: FontWeight.normal,
           fontSize: 12.sp,
           decoration: TextDecoration.underline,
-          decorationColor: Colors.blue,
+          decorationColor: AppColors.primaryText,
         ),
 
       ),
