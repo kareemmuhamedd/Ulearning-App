@@ -6,12 +6,14 @@ class CustomTextField extends StatelessWidget {
   final String textType;
   final String hintText;
   final String iconName;
+  final Function(String)? onChanged;
 
   const CustomTextField({
     super.key,
     required this.textType,
     required this.hintText,
     required this.iconName,
+    this.onChanged,
   });
 
   @override
@@ -37,6 +39,9 @@ class CustomTextField extends StatelessWidget {
           SizedBox(
             width: 270.w,
             child: TextField(
+              onChanged: (value) {
+                onChanged!(value);
+              },
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                 hintText: hintText,

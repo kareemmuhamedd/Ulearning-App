@@ -31,6 +31,7 @@ class SignInController {
           }
           if(!credential.user!.emailVerified){
             // todo handle email not verified
+            print('Email not verified');
           }
           var user = credential.user;
           if(user!=null){
@@ -38,8 +39,19 @@ class SignInController {
           }else{
             // todo we have error getting user from firebase
           }
-        } catch (e) {
-          print(e);
+        } on FirebaseException catch (e) {
+          if(e.code=='invalid-credential'){
+            print('No user found for that email.');
+          }
+          else if(e.code=='wrong-password'){
+            print('Wrong password provided for that user.');
+          }
+          else if(e.code=='invalid-email'){
+            print('The email address is badly formatted.');
+          }
+          else{
+            print('not custom error${e.code}');
+          }
         }
       }
     } catch (e) {
