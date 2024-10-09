@@ -5,17 +5,18 @@ import 'package:ulearning_app/common/values/colors.dart';
 class LoginAndRegisterButton extends StatelessWidget {
   final String buttonName;
   final String buttonType;
+  final Function()? onTap;
 
   const LoginAndRegisterButton({
     super.key,
     required this.buttonName,
-    required this.buttonType,
+    required this.buttonType, this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: 325.w,
         height: 50.h,
