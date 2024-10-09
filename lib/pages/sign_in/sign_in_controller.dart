@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ulearning_app/common/widgets/flutter_toast.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/signin_blocs.dart';
 
 class SignInController {
@@ -15,10 +16,12 @@ class SignInController {
         String emailAddress = state.email;
         String password = state.password;
         if (emailAddress.isEmpty) {
-          // todo handle email is empty
+          toastInfo(msg: 'Your need to fill email address.');
+          return;
         }
         if (password.isEmpty) {
-          // todo handle password is empty
+          toastInfo(msg: 'Your need to fill password.');
+          return;
         }
         try {
           final credential =
@@ -27,30 +30,32 @@ class SignInController {
             password: password,
           );
           if(credential.user==null){
-            // todo handle user not found
+            toastInfo(msg: 'Your don\'t have account');
+            return;
           }
           if(!credential.user!.emailVerified){
-            // todo handle email not verified
-            print('Email not verified');
+            toastInfo(msg: 'Your need to verify your email.');
+            return;
           }
           var user = credential.user;
           if(user!=null){
             // todo we got verified user from firebase
           }else{
-            // todo we have error getting user from firebase
+            toastInfo(msg: 'Currently you are not a user of this app.');
+            return;
           }
         } on FirebaseException catch (e) {
           if(e.code=='invalid-credential'){
-            print('No user found for that email.');
-          }
-          else if(e.code=='wrong-password'){
-            print('Wrong password provided for that user.');
+            toastInfo(msg: 'Make sure your email and password is correct.');
+            return;
           }
           else if(e.code=='invalid-email'){
-            print('The email address is badly formatted.');
+            toastInfo(msg: 'The email address is badly formatted.');
+            return;
           }
           else{
-            print('not custom error${e.code}');
+            toastInfo(msg: 'Something went wrong, try again later.');
+            return;
           }
         }
       }
