@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "204838924480",
+    "project_id": "ulearning-app-647c0",
+    "storage_bucket": "ulearning-app-647c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204838924480:android:b2fae5cca07808b62cfd25",
+        "android_client_info": {
+          "package_name": "com.kartech.ulearning_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-SE1-7B86xwKtu3PCNbpGYpCWHQulgsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
