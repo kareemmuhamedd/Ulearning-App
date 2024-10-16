@@ -4,13 +4,13 @@ import 'package:ulearning_app/common/values/colors.dart';
 
 class LoginAndRegisterButton extends StatelessWidget {
   final String buttonName;
-  final String buttonType;
+  final String? buttonType;
   final Function()? onTap;
 
   const LoginAndRegisterButton({
     super.key,
     required this.buttonName,
-    required this.buttonType, this.onTap,
+     this.buttonType='login', this.onTap,
   });
 
   @override

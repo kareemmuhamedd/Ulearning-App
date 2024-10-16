@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/pages/bloc_providers.dart';
-import 'package:ulearning_app/pages/sign_in/bloc/signin_blocs.dart';
+import 'package:ulearning_app/pages/register/register_screen.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in_screen.dart';
-import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
+
+import 'common/values/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,14 +27,16 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              appBarTheme: const AppBarTheme(
+              appBarTheme:  const AppBarTheme(
+                iconTheme: IconThemeData(color: AppColors.primaryText),
                 backgroundColor: Colors.white,
                 elevation: 0,
               ),
             ),
             home: const Welcome(),
             routes: {
-              '/signIn': (context) => const SignIn(),
+              '/signIn': (context) => const SignInScreen(),
+              '/register': (context) => const RegisterScreen(),
             },
           );
         },

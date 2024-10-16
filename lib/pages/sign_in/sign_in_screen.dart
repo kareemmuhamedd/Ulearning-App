@@ -11,14 +11,14 @@ import 'package:ulearning_app/pages/sign_in/widgets/login_and_register_button.da
 import 'package:ulearning_app/pages/sign_in/widgets/custom_signin_appbar.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/third_party_login_widget.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignInBloc, SignInState>(
@@ -26,9 +26,10 @@ class _SignInState extends State<SignIn> {
         return Container(
           color: Colors.white,
           child: SafeArea(
+            minimum: EdgeInsets.only(top: 30.h),
             child: Scaffold(
               backgroundColor: Colors.white,
-              appBar: buildAppBar(),
+              appBar: buildAppBar(appBarTitle:'Log In'),
               body: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +64,7 @@ class _SignInState extends State<SignIn> {
                             height: 5.h,
                           ),
                           CustomTextField(
-                            hintText: 'Enter your password',
+                            hintText: 'Enter your Password',
                             textType: 'password',
                             iconName: 'lock',
                             onChanged: (value) {
@@ -84,9 +85,11 @@ class _SignInState extends State<SignIn> {
                       },
                     ),
                     LoginAndRegisterButton(
-                      buttonName: 'Register',
+                      buttonName: 'Sign Up',
                       buttonType: 'register',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/register');
+                      },
                     ),
                   ],
                 ),
