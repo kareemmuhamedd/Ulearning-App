@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/pages/register/bloc/register_events.dart';
+import 'package:ulearning_app/pages/register/register_controller.dart';
 
 import '../sign_in/widgets/custom_signin_appbar.dart';
 import '../sign_in/widgets/custom_text_field.dart';
@@ -97,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     LoginAndRegisterButton(
                       buttonName: 'Sign Up',
                       onTap: () {
-                        Navigator.of(context).pushNamed('/register');
+                       RegisterController(context).handelEmailRegister();
                       },
                     ),
                   ],

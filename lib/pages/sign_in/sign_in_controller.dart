@@ -16,11 +16,11 @@ class SignInController {
         String emailAddress = state.email;
         String password = state.password;
         if (emailAddress.isEmpty) {
-          toastInfo(msg: 'Your need to fill email address.');
+          toastInfo(msg: 'You need to fill email address.');
           return;
         }
         if (password.isEmpty) {
-          toastInfo(msg: 'Your need to fill password.');
+          toastInfo(msg: 'You need to fill password.');
           return;
         }
         try {
@@ -29,31 +29,29 @@ class SignInController {
             email: emailAddress,
             password: password,
           );
-          if(credential.user==null){
-            toastInfo(msg: 'Your don\'t have account');
+          if (credential.user == null) {
+            toastInfo(msg: 'You don\'t have account');
             return;
           }
-          if(!credential.user!.emailVerified){
-            toastInfo(msg: 'Your need to verify your email.');
+          if (!credential.user!.emailVerified) {
+            toastInfo(msg: 'You need to verify your email.');
             return;
           }
           var user = credential.user;
-          if(user!=null){
-            // todo we got verified user from firebase
-          }else{
+          if (user != null) {
+            print('user is exist');
+          } else {
             toastInfo(msg: 'Currently you are not a user of this app.');
             return;
           }
         } on FirebaseException catch (e) {
-          if(e.code=='invalid-credential'){
+          if (e.code == 'invalid-credential') {
             toastInfo(msg: 'Make sure your email and password is correct.');
             return;
-          }
-          else if(e.code=='invalid-email'){
+          } else if (e.code == 'invalid-email') {
             toastInfo(msg: 'The email address is badly formatted.');
             return;
-          }
-          else{
+          } else {
             toastInfo(msg: 'Something went wrong, try again later.');
             return;
           }
