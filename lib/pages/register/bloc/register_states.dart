@@ -5,10 +5,10 @@ class RegisterStates {
   final String confirmPassword;
 
   const RegisterStates({
-    required this.userName,
-    required this.email,
-    required this.password,
-    required this.confirmPassword,
+    this.userName = '',
+    this.email = '',
+    this.password = '',
+    this.confirmPassword = '',
   });
 
   RegisterStates copyWith({
