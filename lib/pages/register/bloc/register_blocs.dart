@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/pages/register/bloc/register_events.dart';
@@ -16,6 +17,7 @@ class RegisterBlocs extends Bloc<RegisterEvent, RegisterStates> {
     UserNameEvent event,
     Emitter<RegisterStates> emit,
   ) {
+    log(event.userName);
     emit(state.copyWith(userName: event.userName));
   }
 
@@ -23,6 +25,7 @@ class RegisterBlocs extends Bloc<RegisterEvent, RegisterStates> {
     EmailEvent event,
     Emitter<RegisterStates> emit,
   ) {
+    log(event.email);
     emit(state.copyWith(email: event.email));
   }
 
@@ -30,6 +33,7 @@ class RegisterBlocs extends Bloc<RegisterEvent, RegisterStates> {
     PasswordEvent event,
     Emitter<RegisterStates> emit,
   ) {
+    log(event.password);
     emit(state.copyWith(password: event.password));
   }
 
@@ -37,6 +41,7 @@ class RegisterBlocs extends Bloc<RegisterEvent, RegisterStates> {
     ConfirmPasswordEvent event,
     Emitter<RegisterStates> emit,
   ) {
+    log(event.confirmPassword);
     emit(state.copyWith(confirmPassword: event.confirmPassword));
   }
 }
