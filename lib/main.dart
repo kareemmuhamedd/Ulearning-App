@@ -2,11 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/pages/application/application_screen.dart';
-import 'package:ulearning_app/pages/bloc_providers.dart';
-import 'package:ulearning_app/pages/register/register_screen.dart';
-import 'package:ulearning_app/pages/sign_in/sign_in_screen.dart';
-
+import 'common/routes/routes.dart';
 import 'common/values/colors.dart';
 
 void main() async {
@@ -21,23 +17,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: AppBlocProviders.allBlocProviders,
+      providers: [...AppScreens.allBlocProviders(context)],
       child: ScreenUtilInit(
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              appBarTheme:  const AppBarTheme(
+              appBarTheme: const AppBarTheme(
                 iconTheme: IconThemeData(color: AppColors.primaryText),
                 backgroundColor: Colors.white,
                 elevation: 0,
               ),
             ),
-            home: const ApplicationScreen(),
-            routes: {
-              '/signIn': (context) => const SignInScreen(),
-              '/register': (context) => const RegisterScreen(),
-            },
+            onGenerateRoute: AppScreens.generateRouteSettings,
           );
         },
       ),
