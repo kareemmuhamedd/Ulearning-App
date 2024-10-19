@@ -28,7 +28,7 @@ class _WelcomeState extends State<Welcome> {
     return Container(
       color: Colors.white,
       child: Scaffold(
-        body: BlocBuilder<WelcomeBloc, WelcomeState>(
+        body: BlocBuilder<WelcomeBlocs, WelcomeState>(
           builder: (context, state) {
             return Container(
               margin: EdgeInsets.only(top: 37.h),
@@ -40,7 +40,7 @@ class _WelcomeState extends State<Welcome> {
                     controller: pageController,
                     onPageChanged: (index) {
                       state.page = index;
-                      BlocProvider.of<WelcomeBloc>(context).add(WelcomeEvent());
+                      BlocProvider.of<WelcomeBlocs>(context).add(WelcomeEvent());
                     },
                     physics: const BouncingScrollPhysics(),
                     children: [

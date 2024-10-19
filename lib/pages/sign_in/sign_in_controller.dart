@@ -12,7 +12,7 @@ class SignInController {
   void handleSignIn(String type) async {
     try {
       if (type == 'email') {
-        final state = context.read<SignInBloc>().state;
+        final state = context.read<SignInBlocs>().state;
         String emailAddress = state.email;
         String password = state.password;
         if (emailAddress.isEmpty) {
@@ -40,6 +40,7 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             print('user is exist');
+            Navigator.of(context).pushNamedAndRemoveUntil('/application', (route) => false);
           } else {
             toastInfo(msg: 'Currently you are not a user of this app.');
             return;

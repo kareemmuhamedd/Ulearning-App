@@ -6,10 +6,10 @@ import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
 class AppBlocProviders {
   static get allBlocProviders => [
         BlocProvider(
-          create: (context) => WelcomeBloc(),
+          create: (context) => WelcomeBlocs(),
         ),
         BlocProvider(
-          create: (context) => SignInBloc(),
+          create: (context) => SignInBlocs(),
         ),
         BlocProvider(
           create: (context) => RegisterBlocs(),
