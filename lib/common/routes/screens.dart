@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/common/routes/names.dart';
+import 'package:ulearning_app/pages/application/application_screen.dart';
+import 'package:ulearning_app/pages/application/bloc/app_blocs.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/pages/register/register_screen.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/signin_blocs.dart';
@@ -15,23 +17,23 @@ class AppScreens {
       ScreenEntity(
         route: AppRoutes.INITIAL,
         screen: const Welcome(),
-        bloc: BlocProvider(create: (_) => WelcomeBloc()),
+        bloc: BlocProvider(create: (_) => WelcomeBlocs()),
       ),
       ScreenEntity(
         route: AppRoutes.SIGN_IN,
         screen: const SignInScreen(),
-        bloc: BlocProvider(create: (_) => SignInBloc()),
+        bloc: BlocProvider(create: (_) => SignInBlocs()),
       ),
       ScreenEntity(
         route: AppRoutes.REGISTER,
         screen: const RegisterScreen(),
         bloc: BlocProvider(create: (_) => RegisterBlocs()),
       ),
-      // ScreenEntity(
-      //   route: AppRoutes.APPLICATION,
-      //   screen: const Welcome(),
-      //   //bloc: BlocProvider(create: (_) => WelcomeBloc()),
-      // ),
+      ScreenEntity(
+        route: AppRoutes.APPLICATION,
+        screen: const ApplicationScreen(),
+        bloc: BlocProvider(create: (_) => AppBlocs()),
+      ),
     ];
   }
 
@@ -51,7 +53,9 @@ class AppScreens {
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
         return MaterialPageRoute(
-            builder: (_) => result.first.screen, settings: settings);
+          builder: (_) => result.first.screen,
+          settings: settings,
+        );
       }
     }
     return MaterialPageRoute(

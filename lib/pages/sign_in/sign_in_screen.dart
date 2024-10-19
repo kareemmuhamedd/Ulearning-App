@@ -21,7 +21,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInBloc, SignInState>(
+    return BlocBuilder<SignInBlocs, SignInState>(
       builder: (context, state) {
         return Container(
           color: Colors.white,
@@ -54,7 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             textType: 'email',
                             iconName: 'user',
                             onChanged: (value) {
-                              context.read<SignInBloc>().add(
+                              context.read<SignInBlocs>().add(
                                     EmailEvent(value),
                                   );
                             },
@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             textType: 'password',
                             iconName: 'lock',
                             onChanged: (value) {
-                              context.read<SignInBloc>().add(
+                              context.read<SignInBlocs>().add(
                                     PasswordEvent(value),
                                   );
                             },
