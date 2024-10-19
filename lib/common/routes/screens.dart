@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/common/routes/names.dart';
+import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/application/application_screen.dart';
 import 'package:ulearning_app/pages/application/bloc/app_blocs.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
@@ -52,6 +53,14 @@ class AppScreens {
       //check for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
+        bool appOpenBefore = Global.storageService.getAppOpenBefore();
+        // here we check if the route is initial and device is first open
+        if (result.first.route == AppRoutes.INITIAL && appOpenBefore) {
+          return MaterialPageRoute(
+            builder: (_) => const SignInScreen(),
+            settings: settings,
+          );
+        }
         return MaterialPageRoute(
           builder: (_) => result.first.screen,
           settings: settings,
