@@ -56,6 +56,13 @@ class AppScreens {
         bool appOpenBefore = Global.storageService.getAppOpenBefore();
         // here we check if the route is initial and device is first open
         if (result.first.route == AppRoutes.INITIAL && appOpenBefore) {
+          bool isLoggedIn = Global.storageService.getIsLoggedIn();
+          if(isLoggedIn){
+            return MaterialPageRoute(
+              builder: (_) => const ApplicationScreen(),
+              settings: settings,
+            );
+          }
           return MaterialPageRoute(
             builder: (_) => const SignInScreen(),
             settings: settings,
