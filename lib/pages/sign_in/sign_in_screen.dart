@@ -77,6 +77,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     forgotPassword(),
+                    SizedBox(height: 70.h,),
                     LoginAndRegisterButton(
                       buttonName: 'Log In',
                       buttonType: 'login',

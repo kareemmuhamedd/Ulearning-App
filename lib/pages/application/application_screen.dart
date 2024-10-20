@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/pages/application/widgets/bottom_nav_bar.dart';
+import 'package:ulearning_app/pages/home/home_screen.dart';
 
 import 'bloc/app_blocs.dart';
 import 'bloc/app_states.dart';
@@ -55,7 +56,7 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
 
 Widget buildPage(int index) {
   List<Widget> widgets = const [
-    Center(child: Text('Home')),
+    HomeScreen(),
     Center(child: Text('Search')),
     Center(child: Text('Course')),
     Center(child: Text('Chat')),
