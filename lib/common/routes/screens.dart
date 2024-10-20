@@ -4,6 +4,8 @@ import 'package:ulearning_app/common/routes/names.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/application/application_screen.dart';
 import 'package:ulearning_app/pages/application/bloc/app_blocs.dart';
+import 'package:ulearning_app/pages/home/bloc/home_screen_blocs.dart';
+import 'package:ulearning_app/pages/home/home_screen.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/pages/register/register_screen.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/signin_blocs.dart';
@@ -34,6 +36,11 @@ class AppScreens {
         route: AppRoutes.APPLICATION,
         screen: const ApplicationScreen(),
         bloc: BlocProvider(create: (_) => AppBlocs()),
+      ),
+      ScreenEntity(
+        route: AppRoutes.HOME_SCREEN,
+        screen: const HomeScreen(),
+        bloc: BlocProvider(create: (_) => HomeScreenBlocs()),
       ),
     ];
   }
