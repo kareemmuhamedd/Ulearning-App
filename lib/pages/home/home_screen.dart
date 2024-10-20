@@ -4,6 +4,7 @@ import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/pages/home/widgets/home_app_bar.dart';
 import 'package:ulearning_app/pages/home/widgets/home_screen_text.dart';
 import 'package:ulearning_app/pages/home/widgets/home_search_widget.dart';
+import 'package:ulearning_app/pages/home/widgets/slider_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 20.h,),
             const HomeSearchWidget(),
+            const SliderWidget(),
+
           ],
         ),
       ),
