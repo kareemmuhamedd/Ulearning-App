@@ -42,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           'Enter your details below and free sign up'),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 36.h),
+                      margin: EdgeInsets.only(top: 60.h),
                       padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +90,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 25.w),
-                      height: 25.h,
                       child: reusableText(
                         'By creating an account you have to agree with our Terms & Conditions.',
                       ),
