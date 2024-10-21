@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/names.dart';
 import 'package:ulearning_app/common/values/colors.dart';
 
 var imagesInfo = <String, String>{
@@ -20,6 +21,9 @@ class SettingsListView extends StatelessWidget {
         ...List.generate(
           imagesInfo.length,
           (index) => GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, AppRoutes.SETTINGS_SCREEN);
+            },
             child: Container(
               margin: EdgeInsets.only(bottom: 15.h),
               child: Row(
