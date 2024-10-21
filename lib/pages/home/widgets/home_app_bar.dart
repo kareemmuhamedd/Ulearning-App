@@ -18,7 +18,7 @@ AppBar buildHomeAppBar(){
             child: Container(
               width: 40.w,
               height: 40.h,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(image: AssetImage('assets/icons/person.png')),
               ),
             ),
