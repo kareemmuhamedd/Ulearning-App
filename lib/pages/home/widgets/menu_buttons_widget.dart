@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/pages/home/widgets/home_reusable_text.dart';
+import 'package:ulearning_app/common/widgets/reusable_text.dart';
 
 import '../../../common/values/colors.dart';
 
@@ -33,7 +33,7 @@ class MenuButtonsWidget extends StatelessWidget {
         top: 5.h,
         bottom: 5.h,
       ),
-      child: HomeReusableText(
+      child: ReusableText(
         text: menuText,
         color: textColor,
         fontSize: 11,

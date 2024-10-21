@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../common/values/colors.dart';
+import '../values/colors.dart';
 
-class HomeReusableText extends StatelessWidget {
+class ReusableText extends StatelessWidget {
   final String text;
   final Color color;
   final int fontSize;
   final FontWeight fontWeight;
 
-  const HomeReusableText({
+  const ReusableText({
     super.key,
     required this.text,
     this.color = AppColors.primaryText,

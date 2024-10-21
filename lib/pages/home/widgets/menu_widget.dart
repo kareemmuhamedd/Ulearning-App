@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/pages/home/widgets/menu_buttons_widget.dart';
-import 'package:ulearning_app/pages/home/widgets/home_reusable_text.dart';
+import 'package:ulearning_app/common/widgets/reusable_text.dart';
 
 import '../../../common/values/colors.dart';
 
@@ -19,11 +19,11 @@ class MenuWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const HomeReusableText(
+              const ReusableText(
                 text: 'Choose your course',
               ),
               GestureDetector(
-                child: const HomeReusableText(
+                child: const ReusableText(
                   text: 'See all',
                   color: AppColors.primaryThirdElementText,
                   fontSize: 12,
