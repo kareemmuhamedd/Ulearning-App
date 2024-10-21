@@ -3,28 +3,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/values/colors.dart';
 
-class HomeScreenText extends StatelessWidget {
+class HomeReusableText extends StatelessWidget {
   final String text;
   final Color color;
-  final int top;
+  final int fontSize;
+  final FontWeight fontWeight;
 
-  const HomeScreenText({
+  const HomeReusableText({
     super.key,
     required this.text,
     this.color = AppColors.primaryText,
-    this.top = 20,
+    this.fontSize = 16,
+    this.fontWeight=FontWeight.bold,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: top.h),
       child: Text(
         text,
         style: TextStyle(
           color: color,
-          fontSize: 24.sp,
-          fontWeight: FontWeight.bold,
+          fontWeight:fontWeight,
+          fontSize: fontSize.sp,
         ),
       ),
     );

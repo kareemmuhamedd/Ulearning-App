@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/pages/home/widgets/home_app_bar.dart';
+import 'package:ulearning_app/pages/home/widgets/home_grid_view_item.dart';
 import 'package:ulearning_app/pages/home/widgets/home_screen_text.dart';
 import 'package:ulearning_app/pages/home/widgets/home_search_widget.dart';
+import 'package:ulearning_app/pages/home/widgets/menu_widget.dart';
 import 'package:ulearning_app/pages/home/widgets/slider_widget.dart';
 
 import 'bloc/home_screen_blocs.dart';
@@ -27,22 +29,48 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, state) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const HomePageText(
-                  text: 'Hello',
-                  color: AppColors.primaryThirdElementText,
+            child: CustomScrollView(
+              slivers: [
+                const SliverToBoxAdapter(
+                  child: HomeScreenText(
+                    text: 'Hello',
+                    color: AppColors.primaryThirdElementText,
+                  ),
                 ),
-                const HomePageText(
-                  text: 'Kareem',
-                  top: 5,
+                const SliverToBoxAdapter(
+                  child: HomeScreenText(
+                    text: 'Kareem',
+                    top: 5,
+                  ),
                 ),
-                SizedBox(
-                  height: 20.h,
+                SliverPadding(
+                  padding: EdgeInsets.only(top: 20.h),
                 ),
-                const HomeSearchWidget(),
-                SliderWidget(state: state),
+                const SliverToBoxAdapter(child: HomeSearchWidget()),
+                SliverToBoxAdapter(child: SliderWidget(state: state)),
+                const SliverToBoxAdapter(child: MenuWidget()),
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 18.h,
+                    horizontal: 0.w,
+                  ),
+                ),
+                SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 15,
+                      crossAxisSpacing: 15,
+                      childAspectRatio: 1.6),
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: 4,
+                    (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {},
+                        child: const HomeGridViewItem(),
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           );
