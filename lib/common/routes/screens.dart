@@ -8,6 +8,8 @@ import 'package:ulearning_app/pages/home/bloc/home_screen_blocs.dart';
 import 'package:ulearning_app/pages/home/home_screen.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/pages/register/register_screen.dart';
+import 'package:ulearning_app/pages/settings/bloc/settings_blocs.dart';
+import 'package:ulearning_app/pages/settings/settings_screen.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/signin_blocs.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in_screen.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
@@ -42,6 +44,11 @@ class AppScreens {
         screen: const HomeScreen(),
         bloc: BlocProvider(create: (_) => HomeScreenBlocs()),
       ),
+      ScreenEntity(
+        route: AppRoutes.SETTINGS_SCREEN,
+        screen: const SettingsScreen(),
+        bloc: BlocProvider(create: (_) => SettingsBlocs()),
+      ),
     ];
   }
 
@@ -64,7 +71,7 @@ class AppScreens {
         // here we check if the route is initial and device is first open
         if (result.first.route == AppRoutes.INITIAL && appOpenBefore) {
           bool isLoggedIn = Global.storageService.getIsLoggedIn();
-          if(isLoggedIn){
+          if (isLoggedIn) {
             return MaterialPageRoute(
               builder: (_) => const ApplicationScreen(),
               settings: settings,
