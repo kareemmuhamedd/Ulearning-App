@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/values/colors.dart';
 
-class HomePageText extends StatelessWidget {
+class HomeScreenText extends StatelessWidget {
   final String text;
   final Color color;
   final int top;
 
-  const HomePageText({
+  const HomeScreenText({
     super.key,
     required this.text,
     this.color = AppColors.primaryText,
