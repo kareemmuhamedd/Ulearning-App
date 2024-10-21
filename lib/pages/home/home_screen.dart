@@ -5,6 +5,7 @@ import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/pages/home/widgets/home_app_bar.dart';
 import 'package:ulearning_app/pages/home/widgets/home_screen_text.dart';
 import 'package:ulearning_app/pages/home/widgets/home_search_widget.dart';
+import 'package:ulearning_app/pages/home/widgets/menu_widget.dart';
 import 'package:ulearning_app/pages/home/widgets/slider_widget.dart';
 
 import 'bloc/home_screen_blocs.dart';
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const HomeSearchWidget(),
                 SliderWidget(state: state),
+                const MenuWidget(),
               ],
             ),
           );
